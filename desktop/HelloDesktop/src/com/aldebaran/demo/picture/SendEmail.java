@@ -1,5 +1,6 @@
 package com.aldebaran.demo.picture;
 
+import com.aldebaran.demo.RobotIP;
 import com.sun.mail.smtp.SMTPTransport;
 
 import java.util.Date;
@@ -11,10 +12,8 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class SendEmail {
-    private static String PASSWORD =  "souka666";
-    private static String USERNAME = "piervak@gmail.com";
-    private static String RCPT_EMAIL = "erwan.pinault@gmail.com";
-    private static String MAIL_TITLE = "Geecon 2014";
+
+    private static String MAIL_TITLE = "JavaOne 2014";
     private static String MAIL_MESSAGE = "Here is the picture";
 
     public void sendPicture(String filename) throws Exception {
@@ -38,7 +37,7 @@ public class SendEmail {
 
         // -- Set the FROM and TO fields --
         msg.setFrom(new InternetAddress("nao@aldebaran-robotics.com"));
-        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(RCPT_EMAIL, false));
+        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(RobotIP.RCPT_EMAIL, false));
 
         msg.setSubject(MAIL_TITLE);
         msg.setSentDate(new Date());
@@ -59,7 +58,7 @@ public class SendEmail {
         SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
 
         System.out.println("Connecting ...");
-        t.connect("smtp.gmail.com", USERNAME, PASSWORD);
+        t.connect("smtp.gmail.com", RobotIP.MAIL_USERNAME, RobotIP.MAIL_PASSWORD);
         System.out.println("Sending email ...");
         Thread.currentThread().setContextClassLoader( getClass().getClassLoader() );
         t.sendMessage(msg, msg.getAllRecipients());

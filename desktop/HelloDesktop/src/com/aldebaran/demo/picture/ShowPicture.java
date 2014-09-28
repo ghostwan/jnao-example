@@ -60,7 +60,7 @@ public class ShowPicture extends Frame {
 		Dimension preferredSize = new Dimension(WIDTH, HEIGHT);
 		picturePanel.setPreferredSize(preferredSize);
 		Font font = new Font("Cantarell", Font.PLAIN, 22);
-		Label caption = new Label("dzień dobry!");
+		Label caption = new Label("Hello Java One");
 		caption.setAlignment(Label.CENTER);
 		caption.setFont(font);
 		caption.setBackground(Color.WHITE);

@@ -28,7 +28,6 @@ import java.util.List;
  */
 public class Ex5PictureTwitter implements StartInterface {
 
-    private static final String API_KEY = "7f5b8c71f0c85620c8f6978ce9a6e0d1";
     private Application application;
     private ALMemory alMemory;
     private String moduleName;
@@ -110,7 +109,7 @@ public class Ex5PictureTwitter implements StartInterface {
     public void askAndSendPictureByTwitter(Picture picture, String text) throws  Exception {
         tts.say("Sending you the picture by twitter");
         try {
-            Configuration conf = new ConfigurationBuilder().setMediaProviderAPIKey(API_KEY).build();
+            Configuration conf = new ConfigurationBuilder().setMediaProviderAPIKey(RobotIP.TWITTER_KEY).build();
             ImageUpload upload = new ImageUploadFactory(conf).getInstance(MediaProvider.TWITTER);
             String url;
             url = upload.upload(new File(picture.getFilename()), text);
@@ -119,7 +118,7 @@ public class Ex5PictureTwitter implements StartInterface {
             tts.say("Successfully uploaded image to Twitpic !");
 
             Twitter sender = TwitterFactory.getSingleton();
-            DirectMessage message = sender.sendDirectMessage("ghostwan", messageString);
+            DirectMessage message = sender.sendDirectMessage("naorobot", messageString);
 
             tts.say("look on my profile : ghost wan ! You're in !");
         } catch (TwitterException te) {
