@@ -1,6 +1,6 @@
 This project contains used examples of qimessaging java for android / desktop and robot
 
-you should add the src folder from java-qimessaging-helper folder for to use the helper
+you should add the src folder from java-qimessaging-helper folder to use the helper
 
 !! Warning !!
 On the tools folder of java-qimessaging-helper there is a python script which generate the qimessaging helper library from noaqi APIs, you can update the library with it, but all change I made to fix some mistake in the source will be overidden. 
