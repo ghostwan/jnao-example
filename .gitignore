@@ -6,3 +6,5 @@
 desktop/HelloDesktop/.idea/workspace.xml
 
 desktop/HelloDesktop/src/com/aldebaran/demo/RobotIP.java
+
+desktop/HelloDesktop/twitter4j.properties
