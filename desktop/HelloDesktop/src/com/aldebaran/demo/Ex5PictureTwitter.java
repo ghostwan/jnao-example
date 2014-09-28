@@ -118,9 +118,9 @@ public class Ex5PictureTwitter implements StartInterface {
             tts.say("Successfully uploaded image to Twitpic !");
 
             Twitter sender = TwitterFactory.getSingleton();
-            DirectMessage message = sender.sendDirectMessage("naorobot", messageString);
+            DirectMessage message = sender.sendDirectMessage(RobotIP.TWITTER_LOGIN, messageString);
 
-            tts.say("look on my profile : ghost wan ! You're in !");
+            tts.say("look on my profile : "+RobotIP.TWITTER_NAME+" ! You're in !");
         } catch (TwitterException te) {
             te.printStackTrace();
             System.out.println("Failed to upload the image: " + te.getMessage());
