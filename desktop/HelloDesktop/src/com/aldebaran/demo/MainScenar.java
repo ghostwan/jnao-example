@@ -5,7 +5,7 @@ package com.aldebaran.demo;
  */
 public class MainScenar {
 
-	private static String ROBOT_IP = "192.168.81.164";
+	private static String ROBOT_IP = RobotIP.ip;
 
 	public static void main(String[] args) {
 		new Scenar1().start(ROBOT_IP);

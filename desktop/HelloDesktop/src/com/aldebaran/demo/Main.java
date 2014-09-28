@@ -3,8 +3,8 @@ package com.aldebaran.demo;
 
 public class Main {
 
-    private static final String ROBOT_NAME = "wao.local";
-    private static int step = 1;
+    private static final String ROBOT_NAME = RobotIP.ip;
+    private static int step = 3;
 
     public static void main(String[] args) {
 
