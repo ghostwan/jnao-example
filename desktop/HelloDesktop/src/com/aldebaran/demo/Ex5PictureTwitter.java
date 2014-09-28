@@ -109,7 +109,7 @@ public class Ex5PictureTwitter implements StartInterface {
     public void askAndSendPictureByTwitter(Picture picture, String text) throws  Exception {
         tts.say("Sending you the picture by twitter");
         try {
-            Configuration conf = new ConfigurationBuilder().setMediaProviderAPIKey(RobotIP.TWITTER_KEY).build();
+            Configuration conf = new ConfigurationBuilder().setMediaProviderAPIKey(RobotIP.TWITPIK_KEY).build();
             ImageUpload upload = new ImageUploadFactory(conf).getInstance(MediaProvider.TWITTER);
             String url;
             url = upload.upload(new File(picture.getFilename()), text);
