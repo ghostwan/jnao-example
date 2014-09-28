@@ -24,7 +24,7 @@ public class Scenar1 implements StartInterface {
 	private static final int STEP_END = 10;
 
 
-	private static final String APP_NAME = "scenar1_1";
+	private static String APP_NAME = "scenar1_1";
 
 	private int currentStep = 0;
 	private static Session session;
@@ -43,12 +43,13 @@ public class Scenar1 implements StartInterface {
 	private static ALMotion motion;
 	private ALDialog dialog;
 	private ALFaceCharacteristics faceCharac;
-	private int next_step = STEP_DETECT_SMILE;
+	private int next_step = STEP_MOVING_ARROUND;
 	// Maintain the connection with naoqi
 
 	@Override
 	public void start(String robotIP) {
 
+		APP_NAME = APP_NAME + System.currentTimeMillis();
 		// Connect to the robot
 		application = new Application();
 		session = new Session();
@@ -127,7 +128,7 @@ public class Scenar1 implements StartInterface {
 			stateMachine(STEP_JOKES);
 
 		} else {
-			if (word.equals("come")) {
+			if (word.equals("forward")) {
 				x = 0.6f;
 			} else if (word.equals("left")) {
 				teta = 0.4f;
@@ -151,7 +152,7 @@ public class Scenar1 implements StartInterface {
 
 			motion.moveToward(x, y, teta);
 			Thread.sleep(3000);
-			tts.say("Where do you want me to go ?");
+			tts.say("What now ?");
 			alSpeechRecognition.pause(false);
 		}
 
@@ -169,7 +170,7 @@ public class Scenar1 implements StartInterface {
 		} else if (word.equals("sandwich")) {
 			alAnimatedSpeech.say("^start(animations/Stand/Emotions/Positive/Winner_1) Yeah you win !! ");
 		}
-		stateMachine(STEP_DIALOG);
+		stateMachine(STEP_END);
 	}
 
 	public void stateMachine(int step) {
@@ -214,10 +215,9 @@ public class Scenar1 implements StartInterface {
 
 					//List of words that the robot will recognize
 					ArrayList<String> words1 = new ArrayList<String>();
-					words1.add("come");
+					words1.add("forward");
 					words1.add("left");
 					words1.add("right");
-					words1.add("back");
 					words1.add("stop");
 					words1.add("faster");
 					words1.add("slower");
@@ -323,11 +323,9 @@ public class Scenar1 implements StartInterface {
 				//TODO : continuer les scénarios pour montrer d'autre chose interessante
 				case STEP_END:
 					tts.say("Application is stopping");
-					if (awareness != null)
-						awareness.stopAwareness();
+					awareness.stopAwareness();
 
-					if (motion != null)
-						motion.rest();
+					motion.rest();
 
 					application.stop();
 					break;
