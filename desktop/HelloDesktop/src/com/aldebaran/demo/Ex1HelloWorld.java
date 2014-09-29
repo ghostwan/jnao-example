@@ -1,6 +1,7 @@
 package com.aldebaran.demo;
 
 import com.aldebaran.qimessaging.*;
+import com.aldebaran.qimessaging.helpers.al.ALTextToSpeech;
 
 /**
  * Created by epinault on 11/05/2014.
@@ -19,8 +20,8 @@ public class Ex1HelloWorld implements StartInterface {
                 future.wait(1000);
             }
 
-            com.aldebaran.qimessaging.Object tts = session.service("ALTextToSpeech");
-            tts.call("say", "Hello, Desktop");
+	        ALTextToSpeech tts = new ALTextToSpeech(session);
+            tts.say("Hello, Desktop");
         } catch (Exception e) {
             e.printStackTrace();
         }
