@@ -19,12 +19,12 @@ public class DancyMoves implements StartInterface {
     private Application application;
 
     @Override
-    public void start(String ip) {
+    public void start(String ip, String port) {
         application = new Application();
         Session session = new Session();
         Future<Void> future = null;
         try {
-            future = session.connect("tcp://"+ip+":9559");
+	        future = session.connect("tcp://"+ip+":"+port);
 
             synchronized (future) {
                 future.wait(1000);

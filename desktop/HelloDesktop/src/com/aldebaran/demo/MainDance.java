@@ -6,9 +6,10 @@ package com.aldebaran.demo;
 public class MainDance {
 
 	private static String ROBOT_IP = RobotIP.ip;
+	private static final String ROBOT_PORT = RobotIP.port;
 
 	public static void main(String[] args) {
-		new DancyMoves().start(ROBOT_IP);
+		new DancyMoves().start(ROBOT_IP, ROBOT_PORT);
 	}
 
 }
