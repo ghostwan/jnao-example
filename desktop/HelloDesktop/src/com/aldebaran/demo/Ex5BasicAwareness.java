@@ -6,15 +6,18 @@ import com.aldebaran.qimessaging.Future;
 import com.aldebaran.qimessaging.Session;
 import com.aldebaran.qimessaging.helpers.al.ALBasicAwareness;
 import com.aldebaran.qimessaging.helpers.al.ALMemory;
+import com.aldebaran.qimessaging.helpers.al.ALTextToSpeech;
 
 /**
  * Created by epinault on 25/09/2014.
  */
-public class Ex7BasicAwareness implements StartInterface {
+//Only on real robot
+public class Ex5BasicAwareness implements StartInterface {
 
 	private ALMemory alMemory;
 	private Application application;
 	private ALBasicAwareness awareness;
+	private ALTextToSpeech tts;
 
 	@Override
 	public void start(String robotIp, String ip) {
@@ -30,6 +33,8 @@ public class Ex7BasicAwareness implements StartInterface {
 
 			alMemory = new ALMemory(session);
 			awareness = new ALBasicAwareness(session);
+			tts = new ALTextToSpeech(session);
+
 			awareness.setEngagementMode("SemiEngaged");
 			awareness.setTrackingMode("Head");
 			awareness.setStimulusDetectionEnabled("Sound", true);
@@ -39,10 +44,16 @@ public class Ex7BasicAwareness implements StartInterface {
 
 			alMemory.subscribeToEvent("RearTactilTouched" , "onBackTouch::(f)", this);
 			alMemory.subscribeToEvent("FrontTactilTouched" , "onFrontTouch::(f)", this);
-			alMemory.subscribeToEvent("UserSession/FocusedUser" , "onFocusedUser::(f)", this);
+			alMemory.subscribeToEvent("ALBasicAwareness/HumanTracked", "onHumanTracked::(i)", this);
 			application.run();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	public void onHumanTracked(Integer humanID) throws InterruptedException, CallError {
+		if (humanID >= 0) {
+			tts.say("I see " + humanID);
 		}
 	}
 
