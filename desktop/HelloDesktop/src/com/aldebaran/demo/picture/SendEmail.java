@@ -37,7 +37,7 @@ public class SendEmail {
 
         // -- Set the FROM and TO fields --
         msg.setFrom(new InternetAddress("nao@aldebaran-robotics.com"));
-        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(RobotIP.RCPT_EMAIL, false));
+//        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(RobotIP.RCPT_EMAIL, false));
 
         msg.setSubject(MAIL_TITLE);
         msg.setSentDate(new Date());
@@ -58,7 +58,7 @@ public class SendEmail {
         SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
 
         System.out.println("Connecting ...");
-        t.connect("smtp.gmail.com", RobotIP.MAIL_USERNAME, RobotIP.MAIL_PASSWORD);
+//        t.connect("smtp.gmail.com", RobotIP.MAIL_USERNAME, RobotIP.MAIL_PASSWORD);
         System.out.println("Sending email ...");
         Thread.currentThread().setContextClassLoader( getClass().getClassLoader() );
         t.sendMessage(msg, msg.getAllRecipients());

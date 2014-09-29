@@ -108,24 +108,24 @@ public class Ex5PictureTwitter implements StartInterface {
     }
     public void askAndSendPictureByTwitter(Picture picture, String text) throws  Exception {
         tts.say("Sending you the picture by twitter");
-        try {
-            Configuration conf = new ConfigurationBuilder().setMediaProviderAPIKey(RobotIP.TWITPIK_KEY).build();
-            ImageUpload upload = new ImageUploadFactory(conf).getInstance(MediaProvider.TWITTER);
-            String url;
-            url = upload.upload(new File(picture.getFilename()), text);
-            String messageString = "Nice pic!! from Java One : "+url;
-
-            tts.say("Successfully uploaded image to Twitpic !");
-
-            Twitter sender = TwitterFactory.getSingleton();
-            DirectMessage message = sender.sendDirectMessage(RobotIP.TWITTER_LOGIN, messageString);
-
-            tts.say("look on my profile : "+RobotIP.TWITTER_NAME+" ! You're in !");
-        } catch (TwitterException te) {
-            te.printStackTrace();
-            System.out.println("Failed to upload the image: " + te.getMessage());
-            tts.say("Failed to upload the image !");
-        }
+//        try {
+//            Configuration conf = new ConfigurationBuilder().setMediaProviderAPIKey(RobotIP.TWITPIK_KEY).build();
+//            ImageUpload upload = new ImageUploadFactory(conf).getInstance(MediaProvider.TWITTER);
+//            String url;
+//            url = upload.upload(new File(picture.getFilename()), text);
+//            String messageString = "Nice pic!! from Java One : "+url;
+//
+//            tts.say("Successfully uploaded image to Twitpic !");
+//
+//            Twitter sender = TwitterFactory.getSingleton();
+//            DirectMessage message = sender.sendDirectMessage(RobotIP.TWITTER_LOGIN, messageString);
+//
+//            tts.say("look on my profile : "+RobotIP.TWITTER_NAME+" ! You're in !");
+//        } catch (TwitterException te) {
+//            te.printStackTrace();
+//            System.out.println("Failed to upload the image: " + te.getMessage());
+//            tts.say("Failed to upload the image !");
+//        }
     }
 
     public byte[] takePicture() throws Exception {
