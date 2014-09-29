@@ -20,9 +20,9 @@ How to:
 //Port for real robot
 //	public static String port = "9559";
 
-// password of you email account (twitter example, smtp conf)
+// password of an email account (twitter example, smtp conf)
 	public static String MAIL_PASSWORD =  "";
-// login of you email account (twitter example, smtp conf)
+// login of an email account (twitter example, smtp conf)
 	public static String MAIL_USERNAME = "";
 // email to send the photo
 	public static String RCPT_EMAIL = "";
