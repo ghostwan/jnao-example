@@ -6,6 +6,7 @@ import com.aldebaran.qimessaging.Future;
 import com.aldebaran.qimessaging.Session;
 import com.aldebaran.qimessaging.helpers.al.ALBasicAwareness;
 import com.aldebaran.qimessaging.helpers.al.ALMemory;
+import com.aldebaran.qimessaging.helpers.al.ALMotion;
 import com.aldebaran.qimessaging.helpers.al.ALTextToSpeech;
 
 /**
@@ -18,14 +19,15 @@ public class Ex5BasicAwareness implements StartInterface {
 	private Application application;
 	private ALBasicAwareness awareness;
 	private ALTextToSpeech tts;
+	private ALMotion motion;
 
 	@Override
-	public void start(String robotIp, String ip) {
+	public void start(String ip, String port) {
 		application = new Application();
 		Session session = new Session();
 		Future<Void> future = null;
 		try {
-			future = session.connect("tcp://"+ip+":9559");
+			future = session.connect("tcp://"+ip+":"+port);
 
 			synchronized (future) {
 				future.wait(1000);
@@ -34,7 +36,10 @@ public class Ex5BasicAwareness implements StartInterface {
 			alMemory = new ALMemory(session);
 			awareness = new ALBasicAwareness(session);
 			tts = new ALTextToSpeech(session);
+			motion = new ALMotion(session);
 
+			tts.say("hello");
+			motion.wakeUp();
 			awareness.setEngagementMode("SemiEngaged");
 			awareness.setTrackingMode("Head");
 			awareness.setStimulusDetectionEnabled("Sound", true);

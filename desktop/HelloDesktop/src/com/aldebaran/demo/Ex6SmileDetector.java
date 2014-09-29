@@ -4,10 +4,7 @@ import com.aldebaran.qimessaging.Application;
 import com.aldebaran.qimessaging.CallError;
 import com.aldebaran.qimessaging.Future;
 import com.aldebaran.qimessaging.Session;
-import com.aldebaran.qimessaging.helpers.al.ALBasicAwareness;
-import com.aldebaran.qimessaging.helpers.al.ALFaceCharacteristics;
-import com.aldebaran.qimessaging.helpers.al.ALMemory;
-import com.aldebaran.qimessaging.helpers.al.ALTextToSpeech;
+import com.aldebaran.qimessaging.helpers.al.*;
 
 import java.util.ArrayList;
 
@@ -23,14 +20,15 @@ public class Ex6SmileDetector implements StartInterface {
 	private boolean isRunning;
 	private ALFaceCharacteristics faceCharac;
 	private ALTextToSpeech tts;
+	private ALMotion motion;
 
 	@Override
-	public void start(String robotIp, String ip) {
+	public void start(String ip, String port) {
 		application = new Application();
 		Session session = new Session();
 		Future<Void> future = null;
 		try {
-			future = session.connect("tcp://"+ip+":9559");
+			future = session.connect("tcp://"+ip+":"+port);
 
 			synchronized (future) {
 				future.wait(1000);
@@ -38,9 +36,12 @@ public class Ex6SmileDetector implements StartInterface {
 
 			alMemory = new ALMemory(session);
 			awareness = new ALBasicAwareness(session);
-			faceCharac = new ALFaceCharacteristics(session);
 			tts = new ALTextToSpeech(session);
+			motion = new ALMotion(session);
+			faceCharac = new ALFaceCharacteristics(session);
 
+			tts.say("hello");
+			motion.wakeUp();
 			awareness.setEngagementMode("SemiEngaged");
 			awareness.setTrackingMode("Head");
 			awareness.setStimulusDetectionEnabled("Sound", true);
