@@ -43,13 +43,13 @@ public class Ex5PictureTwitter implements StartInterface {
     int frameRate = 10; // FPS
 
     @Override
-    public void start(String robotIP) {
+    public void start(String ip, String port) {
 
         application = new Application();
         Session session = new Session();
         Future<Void> future = null;
         try {
-            future = session.connect("tcp://"+robotIP+":9559");
+	        future = session.connect("tcp://"+ip+":"+port);
 
             synchronized (future) {
                 future.wait(1000);

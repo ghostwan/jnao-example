@@ -7,7 +7,6 @@ import com.aldebaran.qimessaging.Session;
 import com.aldebaran.qimessaging.helpers.al.ALMemory;
 import com.aldebaran.qimessaging.helpers.al.ALMotion;
 import com.aldebaran.qimessaging.helpers.al.ALSoundLocalization;
-import com.aldebaran.qimessaging.helpers.al.ALTextToSpeech;
 
 import java.util.ArrayList;
 
@@ -25,12 +24,12 @@ public class Ex3ReactToSound implements StartInterface {
     private ALMotion motion;
 
     @Override
-    public void start(String robotIP) {
+    public void start(String ip, String port) {
         application = new Application();
         Session session = new Session();
         Future<Void> future = null;
         try {
-            future = session.connect("tcp://" + robotIP + ":9559");
+	        future = session.connect("tcp://"+ip+":"+port);
 
             synchronized (future) {
                 future.wait(1000);

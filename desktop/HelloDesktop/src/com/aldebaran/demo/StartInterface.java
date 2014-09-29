@@ -5,5 +5,5 @@ package com.aldebaran.demo;
  */
 public interface StartInterface {
 
-    public void start(String robotIP);
+    public void start(String robotIp, String port);
 }

@@ -9,11 +9,11 @@ public class Ex1HelloWorld implements StartInterface {
 
 
     @Override
-    public void start(String ip) {
+    public void start(String ip, String port) {
         Session session = new Session();
         Future<Void> future = null;
         try {
-            future = session.connect("tcp://"+ip+":9559");
+            future = session.connect("tcp://"+ip+":"+port);
 
             synchronized (future) {
                 future.wait(1000);

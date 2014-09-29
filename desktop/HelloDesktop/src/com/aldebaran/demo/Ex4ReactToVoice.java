@@ -24,12 +24,12 @@ public class Ex4ReactToVoice implements StartInterface {
     private ALRobotPosture posture;
 
     @Override
-    public void start(String robotIP) {
+    public void start(String ip, String port) {
         application = new Application();
         Session session = new Session();
         Future<Void> future = null;
         try {
-            future = session.connect("tcp://" + robotIP + ":9559");
+	        future = session.connect("tcp://"+ip+":"+port);
 
             synchronized (future) {
                 future.wait(1000);

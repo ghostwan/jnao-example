@@ -47,7 +47,7 @@ public class Scenar1 implements StartInterface {
 	// Maintain the connection with naoqi
 
 	@Override
-	public void start(String robotIP) {
+	public void start(String ip, String port) {
 
 		APP_NAME = APP_NAME + System.currentTimeMillis();
 		// Connect to the robot
@@ -55,8 +55,8 @@ public class Scenar1 implements StartInterface {
 		session = new Session();
 		Future<Void> future = null;
 		try {
-			System.out.printf("Connect to " + robotIP);
-			future = session.connect("tcp://" + robotIP + ":9559");
+			System.out.printf("Connect to " + port);
+			future = session.connect("tcp://"+ip+":"+port);
 
 			synchronized (future) {
 				future.wait(1000);

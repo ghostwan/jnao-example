@@ -5,8 +5,6 @@ import com.aldebaran.qimessaging.Application;
 import com.aldebaran.qimessaging.Future;
 import com.aldebaran.qimessaging.Session;
 import com.aldebaran.qimessaging.helpers.al.ALMemory;
-import com.aldebaran.qimessaging.helpers.al.ALMotion;
-import com.aldebaran.qimessaging.helpers.al.ALTextToSpeech;
 
 /**
  * Created by epinault on 21/05/2014.
@@ -17,12 +15,12 @@ public class Ex6TouchEvent implements StartInterface {
     private Application application;
 
     @Override
-    public void start(String ip) {
+    public void start(String ip, String port) {
         application = new Application();
         Session session = new Session();
         Future<Void> future = null;
         try {
-            future = session.connect("tcp://"+ip+":9559");
+	        future = session.connect("tcp://"+ip+":"+port);
 
             synchronized (future) {
                 future.wait(1000);

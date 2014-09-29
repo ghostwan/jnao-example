@@ -17,7 +17,7 @@ public class Ex7BasicAwareness implements StartInterface {
 	private ALBasicAwareness awareness;
 
 	@Override
-	public void start(String ip) {
+	public void start(String robotIp, String ip) {
 		application = new Application();
 		Session session = new Session();
 		Future<Void> future = null;

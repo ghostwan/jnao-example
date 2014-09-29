@@ -1,11 +1,55 @@
-This project contains used examples of qimessaging java for android / desktop and robot
+http://www.aldebaran.com
 
-you should add the src folder from java-qimessaging-helper folder to use the helper
+Example to control Nao with Java qimessaging library and Java compliant wrapper (java-qimessaging-helper)
+
+- Work with Naoqi version 2.x
+- Examples that work on Desktop and Android and Robot JVMs
+
+How to:
+
+ - you should add the src folder from java-qimessaging-helper folder to use the helper
+ - if you have intellij (http://www.jetbrains.com/idea/) you can directly open the projects, that will be proper configure
+ - you need to create a class RobotIP in : jnao-example / desktop / HelloDesktop / src / com / aldebaran / demo /
+	with those fields :
+//Ip for virtual robot
+        public static String ip = "127.0.0.1";
+//Ip for real robot
+//	public static String ip = "192.168.81.164";
+//Port for virtual robot
+	public static String port = "52977";
+//Port for real robot
+//	public static String port = "9559";
+
+// password of you email account (twitter example, smtp conf)
+	public static String MAIL_PASSWORD =  "";
+// login of you email account (twitter example, smtp conf)
+	public static String MAIL_USERNAME = "";
+// email to send the photo
+	public static String RCPT_EMAIL = "";
+// twittpik api key to upload photo
+	public static String TWITPIK_KEY = "";
+// twitter username
+	public static String TWITTER_LOGIN = "";
+// twitter robot readable user name
+	public static String TWITTER_NAME = "";
+
+If you want to run the twitter example you muste create a file twitter4j.properties
+in : jnao-example / desktop / HelloDesktop
+With those fields inside :
+
+oauth.consumerSecret=
+oauth.accessToken=
+oauth.accessTokenSecret=
+oauth.consumerKey=
+
+And fill it with your twitter developper access tokens and secrets
+
+
+If you want to test the robot project you must download a JRE on your robots : 
+The jre you need is :  Linux x86 jre-8u5-linux-i586.tar.gz
 
 !! Warning !!
 On the tools folder of java-qimessaging-helper there is a python script which generate the qimessaging helper library from noaqi APIs, you can update the library with it, but all change I made to fix some mistake in the source will be overidden. 
 
-If you want to test the robot project you must download a JRE on your robots : 
-The jre you need is :  Linux x86 jre-8u5-linux-i586.tar.gz
 
 

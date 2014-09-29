@@ -19,12 +19,12 @@ public class Ex2ReactToTouch implements StartInterface {
     private Application application;
 
     @Override
-    public void start(String ip) {
+    public void start(String ip, String port) {
         application = new Application();
         Session session = new Session();
         Future<Void> future = null;
         try {
-            future = session.connect("tcp://"+ip+":9559");
+	        future = session.connect("tcp://"+ip+":"+port);
 
             synchronized (future) {
                 future.wait(1000);
@@ -38,6 +38,8 @@ public class Ex2ReactToTouch implements StartInterface {
             alMemory.subscribeToEvent("MiddleTactilTouched" , "onTouchSynch::(f)", this);
             alMemory.subscribeToEvent("RearTactilTouched" , "onTouchAsynch::(f)", this);
             alMemory.subscribeToEvent("LeftBumperPressed" , "onEnd::(f)", this);
+
+	        tts.say("I am ready");
             application.run();
         } catch (Exception e) {
             e.printStackTrace();
