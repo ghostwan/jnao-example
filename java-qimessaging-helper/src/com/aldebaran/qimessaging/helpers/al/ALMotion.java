@@ -255,7 +255,7 @@ public class ALMotion extends ALModule {
      * angles: One or more angles in radians
      * fractionMaxSpeed: The fraction of maximum speed to use
      */
-    public void setAngles(com.aldebaran.qimessaging.Object param1, com.aldebaran.qimessaging.Object param2, Float param3) throws CallError, InterruptedException {
+    public void setAngles(String param1, List<Float> param2, Float param3) throws CallError, InterruptedException {
         if (isAsynchronous)
             service.call("setAngles", param1, param2, param3);
         else
@@ -283,7 +283,7 @@ public class ALMotion extends ALModule {
      * useSensors: If true, sensor angles will be returned
      * return: Joint angles in radians.
      */
-    public List<Float> getAngles(com.aldebaran.qimessaging.Object param1, Boolean param2) throws CallError, InterruptedException {
+    public List<Float> getAngles(String param1, Boolean param2) throws CallError, InterruptedException {
         return (List<Float>) service.call("getAngles", param1, param2).get();
     }
 
