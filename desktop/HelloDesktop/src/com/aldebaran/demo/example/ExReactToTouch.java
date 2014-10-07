@@ -1,5 +1,6 @@
-package com.aldebaran.demo;
+package com.aldebaran.demo.example;
 
+import com.aldebaran.demo.StartInterface;
 import com.aldebaran.qimessaging.*;
 import com.aldebaran.qimessaging.Object;
 import com.aldebaran.qimessaging.helpers.al.ALMemory;

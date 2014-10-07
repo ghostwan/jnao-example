@@ -1,5 +1,7 @@
-package com.aldebaran.demo;
+package com.aldebaran.demo.example;
 
+import com.aldebaran.demo.RobotIP;
+import com.aldebaran.demo.StartInterface;
 import com.aldebaran.demo.picture.Picture;
 import com.aldebaran.demo.picture.SendEmail;
 import com.aldebaran.demo.picture.ShowPicture;

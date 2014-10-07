@@ -1,6 +1,8 @@
 package com.aldebaran.demo;
 
 
+import com.aldebaran.demo.example.*;
+
 public class Main {
 
     private static final String ROBOT_IP = RobotIP.ip;
@@ -18,6 +20,7 @@ public class Main {
             case 4: new ExBasicAwareness().start(ROBOT_IP, ROBOT_PORT);break;
             case 5: new ExSmileDetector().start(ROBOT_IP, ROBOT_PORT);break;
             case 6: new ExPictureTwitter().start(ROBOT_IP, ROBOT_PORT);break;
+            case 7: new ExReactToSound().start(ROBOT_IP, ROBOT_PORT);break;
         }
 
 

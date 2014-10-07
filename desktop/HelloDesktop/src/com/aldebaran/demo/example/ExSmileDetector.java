@@ -1,5 +1,6 @@
-package com.aldebaran.demo;
+package com.aldebaran.demo.example;
 
+import com.aldebaran.demo.StartInterface;
 import com.aldebaran.qimessaging.Application;
 import com.aldebaran.qimessaging.CallError;
 import com.aldebaran.qimessaging.Future;
