@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Created by epinault on 12/05/2014.
  */
-public class Ex6PictureTwitter implements StartInterface {
+public class ExPictureTwitter implements StartInterface {
 
     private Application application;
     private ALMemory alMemory;

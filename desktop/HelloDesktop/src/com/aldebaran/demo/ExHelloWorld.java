@@ -6,7 +6,7 @@ import com.aldebaran.qimessaging.helpers.al.ALTextToSpeech;
 /**
  * Created by epinault on 11/05/2014.
  */
-public class Ex1HelloWorld implements StartInterface {
+public class ExHelloWorld implements StartInterface {
 
 
     @Override

@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by epinault on 11/05/2014.
  */
-public class Ex3ReactToVoice implements StartInterface {
+public class ExReactToVoice implements StartInterface {
 
     private boolean isAwake = false;
     private Application application;

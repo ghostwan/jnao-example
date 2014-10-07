@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Created by epinault on 25/09/2014.
  */
 //Only on real robot
-public class Ex5SmileDetector implements StartInterface {
+public class ExSmileDetector implements StartInterface {
 
 	private ALMemory alMemory;
 	private Application application;

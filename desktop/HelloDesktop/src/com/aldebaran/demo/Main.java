@@ -12,12 +12,12 @@ public class Main {
 
 
         switch (step) {
-            case 1: new Ex1HelloWorld().start(ROBOT_IP, ROBOT_PORT);break;
-            case 2: new Ex2ReactToTouch().start(ROBOT_IP, ROBOT_PORT);break;
-            case 3: new Ex3ReactToVoice().start(ROBOT_IP, ROBOT_PORT);break;
-            case 4: new Ex4BasicAwareness().start(ROBOT_IP, ROBOT_PORT);break;
-            case 5: new Ex5SmileDetector().start(ROBOT_IP, ROBOT_PORT);break;
-            case 6: new Ex6PictureTwitter().start(ROBOT_IP, ROBOT_PORT);break;
+            case 1: new ExHelloWorld().start(ROBOT_IP, ROBOT_PORT);break;
+            case 2: new ExReactToTouch().start(ROBOT_IP, ROBOT_PORT);break;
+            case 3: new ExReactToVoice().start(ROBOT_IP, ROBOT_PORT);break;
+            case 4: new ExBasicAwareness().start(ROBOT_IP, ROBOT_PORT);break;
+            case 5: new ExSmileDetector().start(ROBOT_IP, ROBOT_PORT);break;
+            case 6: new ExPictureTwitter().start(ROBOT_IP, ROBOT_PORT);break;
         }
 
 
