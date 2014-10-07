@@ -20,30 +20,7 @@ How to:
 //Port for real robot
 //	public static String port = "9559";
 
-// password of an email account (twitter example, smtp conf)
-	public static String MAIL_PASSWORD =  "";
-// login of an email account (twitter example, smtp conf)
-	public static String MAIL_USERNAME = "";
-// email to send the photo
-	public static String RCPT_EMAIL = "";
-// twittpik api key to upload photo
-	public static String TWITPIK_KEY = "";
-// twitter username
-	public static String TWITTER_LOGIN = "";
-// twitter robot readable user name
-	public static String TWITTER_NAME = "";
-
-If you want to run the twitter example you muste create a file twitter4j.properties
-in : jnao-example / desktop / HelloDesktop
-With those fields inside :
-
-oauth.consumerSecret=
-oauth.accessToken=
-oauth.accessTokenSecret=
-oauth.consumerKey=
-
-And fill it with your twitter developper access tokens and secrets
-
+Java Qimessaing source code could be find here : https://github.com/aldebaran/libqi-java
 
 If you want to test the robot project you must download a JRE on your robots : 
 The jre you need is :  Linux x86 jre-8u5-linux-i586.tar.gz
