@@ -30,7 +30,7 @@ public class Util {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         Date date = new Date();
         String dateStr = dateFormat.format(date);
-        String fileName = String.format("Geecon-%s.png", dateStr);
+        String fileName = String.format("Photo-%s.png", dateStr);
         File out = new File(fileName);
         try {
             ImageIO.write(img, "png", out);

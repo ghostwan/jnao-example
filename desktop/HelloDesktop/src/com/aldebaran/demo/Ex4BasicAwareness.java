@@ -13,7 +13,7 @@ import com.aldebaran.qimessaging.helpers.al.ALTextToSpeech;
  * Created by epinault on 25/09/2014.
  */
 //Only on real robot
-public class Ex5BasicAwareness implements StartInterface {
+public class Ex4BasicAwareness implements StartInterface {
 
 	private ALMemory alMemory;
 	private Application application;

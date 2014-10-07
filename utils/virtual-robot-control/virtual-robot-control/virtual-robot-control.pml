@@ -5,7 +5,9 @@
         <BehaviorDescription name="behavior" src="behavior_1" xar="behavior.xar" />
     </BehaviorDescriptions>
     <Dialogs />
-    <Resources />
+    <Resources>
+        <File name="choice_sentences" src="behavior_1/Aldebaran/choice_sentences.xml" />
+    </Resources>
     <Topics />
     <IgnoredPaths />
 </Package>

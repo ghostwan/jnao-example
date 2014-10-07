@@ -102,19 +102,27 @@ public class DancyMoves implements StartInterface {
             motion.wakeUp();
             boolean running = true;
             float speed = 0.5f;
-            ArrayList<ArrayList<Float>> moves = new ArrayList<ArrayList<Float>>();
-            moves.add(LARM_HIP);
-            moves.add(LARM_STRETCHED);
-            moves.add(LARM_HIP);
-            moves.add(LARM_STRETCHED);
-            ArrayList<Float> dest = moves.remove(0);
+	        ArrayList<ArrayList<Float>> movesL = new ArrayList<ArrayList<Float>>();
+	        movesL.add(LARM_HIP);
+	        movesL.add(LARM_STRETCHED);
+	        movesL.add(LARM_HIP);
+	        movesL.add(LARM_STRETCHED);
+	        ArrayList<ArrayList<Float>> movesR = new ArrayList<ArrayList<Float>>();
+	        movesR.add(RARM_HIP);
+	        movesR.add(RARM_STRETCHED);
+	        movesR.add(RARM_HIP);
+	        movesR.add(RARM_STRETCHED);
+	        ArrayList<Float> destL = movesL.remove(0);
+	        ArrayList<Float> destR = movesR.remove(0);
             while (running) {
-                motion.setAngles("LArm", dest, speed);
+	            motion.setAngles("LArm", destL, speed);
+	            motion.setAngles("RArm", destR, speed);
                 Thread.sleep(50);
-                float dist = measureDistance("LArm", dest);
+                float dist = measureDistance("LArm", destR);
                 if (dist < 0.1) {
-                    if (moves.size() > 0) {
-                        dest = moves.remove(0);
+                    if (movesL.size() > 0) {
+	                    destL = movesL.remove(0);
+	                    destR = movesR.remove(0);
                     }
                     else {
                         break;

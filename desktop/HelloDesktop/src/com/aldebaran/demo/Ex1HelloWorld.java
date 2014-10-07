@@ -21,7 +21,7 @@ public class Ex1HelloWorld implements StartInterface {
             }
 
 	        ALTextToSpeech tts = new ALTextToSpeech(session);
-            tts.say("Hello, Desktop");
+            tts.say("Hello, Java One!");
         } catch (Exception e) {
             e.printStackTrace();
         }

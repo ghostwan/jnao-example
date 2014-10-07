@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by epinault on 11/05/2014.
  */
-public class Ex4ReactToVoice implements StartInterface {
+public class Ex3ReactToVoice implements StartInterface {
 
     private boolean isAwake = false;
     private Application application;
@@ -48,8 +48,8 @@ public class Ex4ReactToVoice implements StartInterface {
 
             alSpeechRecognition.setVocabulary(listOfWords,false);
 
-            alSpeechRecognition.subscribe("demo");
-            alMemory.subscribeToEvent("WordRecognized", "onWordRecognizedForMoving::(m)", this);
+            alSpeechRecognition.subscribe("demo2");
+            alMemory.subscribeToEvent("WordRecognized", "onWordRecognized::(m)", this);
             alMemory.subscribeToEvent("MiddleTactilTouched", "onEnd::(f)", this);
             application.run();
         } catch (Exception e) {
