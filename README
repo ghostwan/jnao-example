@@ -1,13 +1,12 @@
 http://www.aldebaran.com
 
-Example to control Nao with Java qimessaging library and Java compliant wrapper (java-qimessaging-helper)
+Example to control Nao with Java qimessaging library and jnaoqi wrapper
 
 - Work with Naoqi version 2.x
 - Examples that work on Desktop and Android and Robot JVMs
 
 How to:
 
- - you should add the src folder from java-qimessaging-helper folder to use the helper
  - if you have intellij (http://www.jetbrains.com/idea/) you can directly open the projects, that will be proper configure
  - you need to create a class RobotIP in : jnao-example / desktop / HelloDesktop / src / com / aldebaran / demo /
 	with those fields :
@@ -25,8 +24,6 @@ Java Qimessaing source code could be find here : https://github.com/aldebaran/li
 If you want to test the robot project you must download a JRE on your robots : 
 The jre you need is :  Linux x86 jre-8u5-linux-i586.tar.gz
 
-!! Warning !!
-On the tools folder of java-qimessaging-helper there is a python script which generate the qimessaging helper library from noaqi APIs, you can update the library with it, but all change I made to fix some mistake in the source will be overidden. 
 
 
 
