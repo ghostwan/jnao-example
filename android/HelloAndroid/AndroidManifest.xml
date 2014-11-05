@@ -17,9 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Beacon"
-            android:label="Beacon"/>
         <!--<activity android:name=".MyActivity" >-->
         <!--</activity>-->
         <service android:name="com.estimote.sdk.service.BeaconService"    android:exported="false"/>

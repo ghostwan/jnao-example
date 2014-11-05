@@ -44,6 +44,7 @@ public class ExReactToSound implements StartInterface {
             sound.subscribe("demo");
             alMemory.subscribeToEvent("ALSoundLocalization/SoundLocated", "onSoundLocated::(m)", this);
             alMemory.subscribeToEvent("MiddleTactilTouched", "onEnd::(f)", this);
+
             application.run();
         } catch (Exception e) {
             e.printStackTrace();

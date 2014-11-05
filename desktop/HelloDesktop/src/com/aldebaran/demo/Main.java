@@ -8,7 +8,7 @@ public class Main {
     private static final String ROBOT_IP = RobotIP.ip;
     private static final String ROBOT_PORT = RobotIP.port;
 
-    private static int step = 4;
+    private static int step = 1;
 
     public static void main(String[] args) {
 

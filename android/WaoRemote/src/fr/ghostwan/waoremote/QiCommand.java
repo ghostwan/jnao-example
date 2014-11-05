@@ -22,8 +22,14 @@ public class QiCommand {
     public static QiCommand newQiDialog(String name, String sentence) {
         return new QiCommand(TYPE_DIALOG,name, "ALTextToSpeech", "say", sentence);
     }
-    public static QiCommand newQiBehavior(String name, String behavior) {
-        return new QiCommand(TYPE_BEHAVIOR,name, "ALBehaviorManager", "runBehavior", behavior);
+    public static QiCommand newQiApplication(String name, String behavior) {
+	    if (! MainActivity.isFullLife)
+            return new QiCommand(TYPE_BEHAVIOR,name, "ALBehaviorManager", "runBehavior", behavior);
+	    else
+            return new QiCommand(TYPE_BEHAVIOR,name, "ALAutonomousLife", "switchFocus", behavior+"/.");
+    }
+	public static QiCommand newQiBehavior(String name, String behavior) {
+            return new QiCommand(TYPE_BEHAVIOR,name, "ALBehaviorManager", "runBehavior", behavior);
     }
 
     public static QiCommand newQiPosture(String posture, Double speed) {

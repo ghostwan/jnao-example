@@ -44,7 +44,7 @@ public class SessionBehavior implements ALInterface {
                         session.connect("tcp://" + ip + ":9559").sync(500, TimeUnit.MILLISECONDS);
                         alBehaviorManager = new ALBehaviorManager(session);
                         motion = new ALMotion(session);
-                        alBehaviorManager.setAlInterface(SessionBehavior.this);
+                        ALBehaviorManager.alInterface = SessionBehavior.this;
                         isConnected = true;
                         callBackInterface.onConnected();
                     } catch (Exception e) {

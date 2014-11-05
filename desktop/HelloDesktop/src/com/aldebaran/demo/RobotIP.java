@@ -10,14 +10,15 @@ public class RobotIP {
 //	public static String port = "56114"; // need to be specify from choregraphe
 
 	//Real Robot Right
-	public static String ip = "169.254.61.216";
-	public static String port = "9559";
+//	public static String ip = "169.254.61.216";
+//	public static String port = "9559";
 
 	//Real Robot Left
 //	public static String ip = "10.158.117.135";
 //	public static String port = "9559";
 
-
+	public static String ip = "maracuya.local";
+	public static String port = "9559";
 
 	public static String MAIL_PASSWORD =  "";
 	public static String MAIL_USERNAME = "";

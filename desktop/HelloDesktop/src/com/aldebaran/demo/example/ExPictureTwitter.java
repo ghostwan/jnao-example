@@ -135,7 +135,7 @@ public class ExPictureTwitter implements StartInterface {
         System.out.format("subscribed with id: %s", moduleName);
 
 //        audio.playFile("/home/nao/camera.mp3");
-        List<Object> image = video.getImageRemote(moduleName);
+        List<Object> image = (List<Object>) video.getImageRemote(moduleName);
         ByteBuffer buffer = (ByteBuffer)image.get(6);
         byte[] rawData = buffer.array();
         video.unsubscribe(moduleName);

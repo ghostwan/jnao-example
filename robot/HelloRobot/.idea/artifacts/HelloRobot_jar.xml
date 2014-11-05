@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/HelloRobot_jar</output-path>
     <root id="archive" name="HelloRobot.jar">
       <element id="module-output" name="HelloRobot" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/libs/qimessaging-2.0.2.34-atom.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../libs/jnaoqi-atom.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

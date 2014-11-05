@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/qimessaging-2.0.2.34-atom.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../libs/jnaoqi-atom.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

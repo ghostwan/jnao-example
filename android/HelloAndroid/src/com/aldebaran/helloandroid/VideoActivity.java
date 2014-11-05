@@ -88,7 +88,7 @@ public class VideoActivity extends Activity {
     }
 
     public Bitmap getVideo() throws Exception {
-        List<Object> image = video.getImageRemote(moduleName);
+        List<Object> image = (List<Object>) video.getImageRemote(moduleName);
         ByteBuffer buffer = (ByteBuffer)image.get(6);
         byte[] rawData = buffer.array();
 

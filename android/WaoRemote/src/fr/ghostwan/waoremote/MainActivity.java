@@ -1,6 +1,7 @@
 package fr.ghostwan.waoremote;
 
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
@@ -70,6 +71,7 @@ public class MainActivity extends Activity implements QiSessionCallback {
     private LinearLayout spinnerLayout;
     private String ipAddressConnected ="";
     private Context context;
+	public static boolean isFullLife = true;
 
 
     private void startServiceRoutine() {
@@ -177,8 +179,10 @@ public class MainActivity extends Activity implements QiSessionCallback {
         });
         qiDialog = new ArrayList<QiCommand>();
 
-        lifeSolitary = new QiCommand("L on", "ALAutonomousLife", "setState", "solitary");
-        lifeOff = new QiCommand("L off", "ALAutonomousLife", "setState", "disabled");
+	    if (!isFullLife) {
+            lifeSolitary = new QiCommand("L on", "ALAutonomousLife", "setState", "solitary");
+            lifeOff = new QiCommand("L off", "ALAutonomousLife", "setState", "disabled");
+	    }
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<QiCommand>>();
@@ -188,7 +192,12 @@ public class MainActivity extends Activity implements QiSessionCallback {
         behaviorList.setAdapter(behaviorAdapter);
 
         initConnectButtonAction(true);
-        initLifeButtonAction(0);
+	    if (!isFullLife) {
+		    initLifeButtonAction(0);
+	    }
+	    else {
+		    lButton.setVisibility(View.GONE);
+	    }
 
         ((Button) findViewById(R.id.rest_button)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -480,7 +489,7 @@ public class MainActivity extends Activity implements QiSessionCallback {
                     if (s.contains("animations"))
                         animation.add(QiCommand.newQiBehavior(splitString[splitString.length - 1], s));
                     else
-                        application.add(QiCommand.newQiBehavior(splitString[splitString.length - 1], s));
+                        application.add(QiCommand.newQiApplication(splitString[splitString.length - 1], s));
                 }
             } catch (ProxyHelper.ProxyException e) {
                 e.printStackTrace();

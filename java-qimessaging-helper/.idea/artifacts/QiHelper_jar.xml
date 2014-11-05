@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="QiHelper:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/QiHelper_jar</output-path>
-    <root id="archive" name="QiHelper.jar">
-      <element id="module-output" name="QiHelper" />
-    </root>
-  </artifact>
-</component>
