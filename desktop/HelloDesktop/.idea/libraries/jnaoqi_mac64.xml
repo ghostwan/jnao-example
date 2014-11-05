@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../libs/jnaoqi-mac64.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../../javadoc" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

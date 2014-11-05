@@ -1,28 +1,49 @@
 package com.aldebaran.demo;
 
+import com.aldebaran.qimessaging.Application;
+import com.aldebaran.qimessaging.CallError;
+import com.aldebaran.qimessaging.Future;
+import com.aldebaran.qimessaging.Session;
+import com.aldebaran.qimessaging.helpers.al.ALMemory;
+import com.aldebaran.qimessaging.helpers.al.ALTextToSpeech;
 
-import com.aldebaran.demo.example.*;
 
+/**
+ * Created by epinault on 05/11/14.
+ */
 public class Main {
 
-    private static final String ROBOT_IP = RobotIP.ip;
-    private static final String ROBOT_PORT = RobotIP.port;
+	public static void main(String[] args) {
 
-    private static int step = 1;
+		Session session = new Session();
+		Application application = new Application();
+		try {
+			Future<Void> future = session.connect("tcp://nao.local:9559");
+			synchronized (future) {
+				future.wait(1000);
+			}
 
-    public static void main(String[] args) {
+			final ALTextToSpeech tts = new ALTextToSpeech(session);
+			tts.setLanguage("English");
 
+			ALMemory alMemory = new ALMemory(session);
+			alMemory.subscribeToEvent("FrontTactilTouched" , "onTouchFront::(f)", new Object() {
 
-        switch (step) {
-            case 1: new ExHelloWorld().start(ROBOT_IP, ROBOT_PORT);break;
-            case 2: new ExReactToTouch().start(ROBOT_IP, ROBOT_PORT);break;
-            case 3: new ExReactToVoice().start(ROBOT_IP, ROBOT_PORT);break;
-            case 4: new ExBasicAwareness().start(ROBOT_IP, ROBOT_PORT);break;
-            case 5: new ExSmileDetector().start(ROBOT_IP, ROBOT_PORT);break;
-            case 6: new ExPictureTwitter().start(ROBOT_IP, ROBOT_PORT);break;
-            case 7: new ExReactToSound().start(ROBOT_IP, ROBOT_PORT);break;
-        }
+				public void onTouchFront(Float touch) throws InterruptedException, CallError {
+					if(touch == 1.0) {
+						tts.say("Hi");
+					}
+					else {
+						tts.say("Thank's you!");
+					}
+				}
+			});
 
+			application.run();
+			application.stop();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-    }
 }
